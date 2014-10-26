@@ -1,10 +1,10 @@
 "use strict";
 /* ************************************************************************
+Copyright:
 
-   1&1 Control-Center App
+License:
 
-   Copyright:
-     2014 1&1 Internet AG, Germany, http://www.1und1.de
+Authors:
 
 ************************************************************************ */
 
