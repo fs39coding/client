@@ -46,6 +46,8 @@ qx.Class.define("fs39exp.Application",
         Remove or edit the following code to create your application.
       -------------------------------------------------------------------------
       */
+      var resource = new fs39exp.io.resource.Expenses();
+      resource.requestExpenses("filter","All");
     },
 
 
