@@ -80,7 +80,7 @@ qx.Class.define("fs39exp.util.Date",
     printDate : function(timestamp, shortYear) {
       var yearFormat = shortYear ? "yy" : "yyyy";
       timestamp = parseInt(timestamp, 10);
-      var locale = qx.locale.Manager.getInstance().getLocale();
+      var locale = qx.locale.Manager.getInstance().locale;
       var dateFormatter = new qx.util.format.DateFormat("dd.MM" + "." + yearFormat,locale);
       return dateFormatter.format(new Date(timestamp));
     },
@@ -96,7 +96,7 @@ qx.Class.define("fs39exp.util.Date",
     printTime : function(timestamp, withSeconds) {
       var formatString = withSeconds ? "HH:mm:ss" : "HH:mm";
       timestamp = parseInt(timestamp, 10);
-      var locale = qx.locale.Manager.getInstance().getLocale();
+      var locale = qx.locale.Manager.getInstance().locale;
       var dateFormatter = new qx.util.format.DateFormat(formatString,locale);
       return dateFormatter.format(new Date(timestamp));
     },
@@ -228,14 +228,6 @@ qx.Class.define("fs39exp.util.Date",
       else {
         return this.printDate(timestamp, true);
       }
-    }
-  },
-
-
-  defer : function(statics) {
-    // If native Date.parse is capable to parse ISO 8601 string, use it.
-    if(Date.parse("2013-05-19T00:00:00.000+02:00")) {
-      statics.parseIsoString = Date.parse;
     }
   }
 });
