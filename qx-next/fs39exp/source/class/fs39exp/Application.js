@@ -46,10 +46,9 @@ qx.Class.define("fs39exp.Application",
         Remove or edit the following code to create your application.
       -------------------------------------------------------------------------
       */
-      //var resource = new fs39exp.io.resource.Expenses();
-      //resource.requestExpenses("filter","All");
 
-      var view = new fs39exp.view.Overview();
+      var model = new fs39exp.model.Overview() 
+      var view = new fs39exp.view.Overview(model);
 
       // Add the pages to the page manager.
       var manager = new qx.ui.mobile.page.Manager(false);
@@ -61,6 +60,10 @@ qx.Class.define("fs39exp.Application",
       this.getRouting().onGet("/", this._show, view);
 
       this.getRouting().init();
+
+      var resource = new fs39exp.io.resource.Expenses();
+      
+      var controller = new fs39exp.controller.Overview(resource, model, view);
     },
 
 
