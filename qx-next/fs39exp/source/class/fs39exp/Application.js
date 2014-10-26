@@ -46,22 +46,6 @@ qx.Class.define("fs39exp.Application",
         Remove or edit the following code to create your application.
       -------------------------------------------------------------------------
       */
-
-      var login = new fs39exp.page.Login();
-      var overview = new fs39exp.page.Overview();
-
-      // Add the pages to the page manager.
-      var manager = new qx.ui.mobile.page.Manager(false);
-      manager.addDetail([
-        login,
-        overview
-      ]);
-
-      // Initialize the application routing
-      this.getRouting().onGet("/", this._show, login);
-      this.getRouting().onGet("/overview", this._show, overview);
-
-      this.getRouting().init();
     },
 
 
