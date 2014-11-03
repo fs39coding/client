@@ -78,7 +78,7 @@ qx.Class.define("fs39exp.ui.ExpList",
                          '{{#amount}}<div class="label no-wrap qx-flex1" style="pointer-events: none;">{{amount}}</div>{{/amount}}' +
                        '</div>' +
                        '<div class="qx-hbox qx-flex-align-center exp-list-top-container">' +
-                         '{{#items}}<div class="label no-wrap" style="pointer-events: none;">{{items}}</div>{{/items}}' +
+                         '{{#items}}<div class="label" style="pointer-events: none;">{{items}}</div>{{/items}}' +
                        '</div>' +
                      '</div>' +
                    '</li>',

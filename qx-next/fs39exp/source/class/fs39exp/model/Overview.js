@@ -1,6 +1,5 @@
 qx.Class.define("fs39exp.model.Overview",
 {
-
   include : [qx.event.MEmitter],
 
   properties:

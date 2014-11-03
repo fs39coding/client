@@ -10,16 +10,16 @@
 
 /**
  */
-qx.Class.define("fs39exp.view.Overview",
+qx.Class.define("fs39exp.view.Add",
 {
   extend : qx.ui.mobile.page.NavigationPage,
-
 
   construct : function(model)
   {
     this.super(qx.ui.mobile.page.NavigationPage, "constructor");
-    this.title = "WG-Kasse";
-    this.backButtonText = "Zurück";
+    this.title = "Neuer Einkauf";
+    this.showBackButton = true;
+    this.backButtonText = "Abbrechen";
     this.model = model;
   },
 
@@ -35,28 +35,20 @@ qx.Class.define("fs39exp.view.Overview",
 
   members :
   {
-    _list : null,
-    _addButton : null,
+    _label : null,
 
     // overridden
     _initialize : function()
     {
       this.super(qx.ui.mobile.page.NavigationPage, "_initialize");
-
-      this._list = new fs39exp.ui.ExpList();
-      qx.data.SingleValueBinding.bind(this.model, "allExpenses", this._list, "model");
-      this.getContent().append(this._list);
-
-      this._addButton = new qx.ui.mobile.Button("+");
-
-      this._addButton.on("tap", this._onTapAdd, this);
-
-      this.getRightContainer().append(this._addButton);
+      this._label = new qx.ui.mobile.basic.Label("Test");
+      this.getContent().append(this._label);
     },
 
-    _onTapAdd : function(e) {
-      qx.core.Init.getApplication().getRouting().executeGet("/add");
+    // overridden
+    _back : function()
+    {
+      qx.core.Init.getApplication().getRouting().back();
     }
   }
 });
-

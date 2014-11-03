@@ -47,23 +47,28 @@ qx.Class.define("fs39exp.Application",
       -------------------------------------------------------------------------
       */
 
-      var model = new fs39exp.model.Overview() 
-      var view = new fs39exp.view.Overview(model);
+      var overviewModel = new fs39exp.model.Overview() 
+      var overview = new fs39exp.view.Overview(overviewModel);
+
+      var addModel = new fs39exp.model.Add()
+      var addView = new fs39exp.view.Add()
 
       // Add the pages to the page manager.
       var manager = new qx.ui.mobile.page.Manager(false);
       manager.addDetail([
-        view
+        overview,
+        addView
       ]);
 
       // Initialize the application routing
-      this.getRouting().onGet("/", this._show, view);
+      this.getRouting().onGet("/", this._show, overview);
+      this.getRouting().onGet("/add", this._show, addView);
 
       this.getRouting().init();
 
-      var resource = new fs39exp.io.resource.Expenses();
+      var listResource = new fs39exp.io.resource.Expenses();
       
-      var controller = new fs39exp.controller.Overview(resource, model, view);
+      var controller = new fs39exp.controller.Overview(listResource, overviewModel, overview);
     },
 
 
