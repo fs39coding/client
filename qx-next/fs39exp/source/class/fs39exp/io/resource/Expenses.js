@@ -43,19 +43,33 @@ qx.Class.define("fs39exp.io.resource.Expenses",
     {
       method: "GET",
       url: "http://sukkram:5984/expenses/_design/{action}/_view/{buyer}"
+    },
+
+    "postEntry":
+    {
+      method: "POST",
+      url: "http://sukkram:5984/expenses/"
     }
   },
 
-  _onSuccess : function(evt)
+  _onSuccess : function(e)
   {
-    if (evt.response) {
-      var res = JSON.parse(evt.response);
+    if (e.action === "getExpenses") 
+    {
+      if (e.response) {
+        var res = JSON.parse(e.response);
 
-      this.emit("update", res);
-    }
+        this.emit("update", res);
+      }   
+    } 
+    else if (e.action === "postEntry")
+    {
+      this.requestExpenses("filter", "All");
+    } 
+   
   },
 
-  _onError : function(evt)
+  _onError : function(e)
   {
     this.emit("error");
   },
@@ -66,6 +80,18 @@ qx.Class.define("fs39exp.io.resource.Expenses",
     action : action,
     buyer : buyer
    });
+  },
+
+  postEntry : function(buyer, items, amount, timestamp)
+  {
+    var obj = {
+      buyer: buyer,
+      items: items,
+      amount: amount,
+      timestamp : timestamp
+    };
+
+    return this._resource.postEntry(null, obj)
   }
 
  }

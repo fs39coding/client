@@ -14,7 +14,7 @@ qx.Class.define("fs39exp.model.Add",
 
     items :
     {
-      check : "String",
+      check : "Array",
       event : "changeItems",
       init : null
     },
@@ -24,6 +24,13 @@ qx.Class.define("fs39exp.model.Add",
       check : "Number",
       event : "changeAmount",
       init : null
+    },
+
+    timestamp :
+    {
+      check : "String",
+      event : "changeTimestamp",
+      init : null
     }
   },
 
@@ -31,9 +38,12 @@ qx.Class.define("fs39exp.model.Add",
   {
     update : function(buyer, items, amount)
     {
+      var now = new Date();
+      
       this.buyer = buyer;
       this.items = items;
       this.amount = amount;
+      this.timestamp = now.toJSON();
     }
   }
 });

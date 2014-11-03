@@ -51,7 +51,7 @@ qx.Class.define("fs39exp.Application",
       var overview = new fs39exp.view.Overview(overviewModel);
 
       var addModel = new fs39exp.model.Add()
-      var addView = new fs39exp.view.Add()
+      var addView = new fs39exp.view.Add(addModel)
 
       // Add the pages to the page manager.
       var manager = new qx.ui.page.Manager(false);
@@ -66,9 +66,10 @@ qx.Class.define("fs39exp.Application",
 
       this.getRouting().init();
 
-      var listResource = new fs39exp.io.resource.Expenses();
+      var resource = new fs39exp.io.resource.Expenses();
       
-      var controller = new fs39exp.controller.Overview(listResource, overviewModel, overview);
+      var overviewController = new fs39exp.controller.Overview(resource, overviewModel, overview);
+      var addController = new fs39exp.controller.Add(resource, addModel, addView);
     },
 
 
