@@ -12,12 +12,12 @@
  */
 qx.Class.define("fs39exp.view.Overview",
 {
-  extend : qx.ui.mobile.page.NavigationPage,
+  extend : qx.ui.page.NavigationPage,
 
 
   construct : function(model)
   {
-    this.super(qx.ui.mobile.page.NavigationPage, "constructor");
+    this.super(qx.ui.page.NavigationPage, "constructor");
     this.title = "WG-Kasse";
     this.backButtonText = "Zurück";
     this.model = model;
@@ -41,13 +41,13 @@ qx.Class.define("fs39exp.view.Overview",
     // overridden
     _initialize : function()
     {
-      this.super(qx.ui.mobile.page.NavigationPage, "_initialize");
+      this.super(qx.ui.page.NavigationPage, "_initialize");
 
       this._list = new fs39exp.ui.ExpList();
       qx.data.SingleValueBinding.bind(this.model, "allExpenses", this._list, "model");
       this.getContent().append(this._list);
 
-      this._addButton = new qx.ui.mobile.Button("+");
+      this._addButton = new qx.ui.Button("+");
 
       this._addButton.on("tap", this._onTapAdd, this);
 

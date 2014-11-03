@@ -36,7 +36,7 @@
  *   ];
  *
  *   // Create the list with a delegate that
- *   var list = new qx.ui.mobile.list.List({
+ *   var list = new qx.ui.list.List({
  *     group: function(data, row) {
  *      return {
  *       title: row < 2 ? "Selectable" : "Unselectable"
@@ -60,12 +60,12 @@
  *
  * @require(qx.module.AnimationFrame)
  * @require(qx.module.Template)
- * @require(qx.ui.mobile.basic.Image)
+ * @require(qx.ui.basic.Image)
  * @group(Widget)
  */
 qx.Class.define("fs39exp.ui.ExpList",
 {
-  extend : qx.ui.mobile.Widget,
+  extend : qx.ui.Widget,
 
 
 
@@ -92,13 +92,13 @@ qx.Class.define("fs39exp.ui.ExpList",
 
 
   /**
-   * @param delegate {qx.ui.mobile.list.IListDelegate?null} The {@link #delegate} to use
+   * @param delegate {qx.ui.list.IListDelegate?null} The {@link #delegate} to use
    * @attach {qxWeb, list}
-   * @return {qx.ui.mobile.list.List} The new list widget.
+   * @return {qx.ui.list.List} The new list widget.
    */
   construct : function(delegate, element)
   {
-    this.super(qx.ui.mobile.Widget, "constructor", element);
+    this.super(qx.ui.Widget, "constructor", element);
 
     this.on("tap", this._onTap, this);
 
@@ -153,7 +153,7 @@ qx.Class.define("fs39exp.ui.ExpList",
 
     /**
      * Delegation object which can have one or more functions defined by the
-     * {@link qx.ui.mobile.list.IListDelegate} interface.
+     * {@link qx.ui.list.IListDelegate} interface.
      */
     delegate :
     {
@@ -583,7 +583,7 @@ qx.Class.define("fs39exp.ui.ExpList",
 
 
     dispose : function() {
-      this.super(qx.ui.mobile.Widget, "dispose");
+      this.super(qx.ui.Widget, "dispose");
       this.__trackElement = null;
       if (qx.core.Environment.get("qx.dynlocale")) {
         qx.locale.Manager.getInstance().off("changeLocale", this.render, this);

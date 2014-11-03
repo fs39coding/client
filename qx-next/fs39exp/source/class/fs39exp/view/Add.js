@@ -12,11 +12,11 @@
  */
 qx.Class.define("fs39exp.view.Add",
 {
-  extend : qx.ui.mobile.page.NavigationPage,
+  extend : qx.ui.page.NavigationPage,
 
   construct : function(model)
   {
-    this.super(qx.ui.mobile.page.NavigationPage, "constructor");
+    this.super(qx.ui.page.NavigationPage, "constructor");
     this.title = "Neuer Einkauf";
     this.showBackButton = true;
     this.backButtonText = "Abbrechen";
@@ -40,8 +40,8 @@ qx.Class.define("fs39exp.view.Add",
     // overridden
     _initialize : function()
     {
-      this.super(qx.ui.mobile.page.NavigationPage, "_initialize");
-      this._label = new qx.ui.mobile.basic.Label("Test");
+      this.super(qx.ui.page.NavigationPage, "_initialize");
+      this._label = new qx.ui.basic.Label("Test");
       this.getContent().append(this._label);
     },
 

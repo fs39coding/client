@@ -54,7 +54,7 @@ qx.Class.define("fs39exp.Application",
       var addView = new fs39exp.view.Add()
 
       // Add the pages to the page manager.
-      var manager = new qx.ui.mobile.page.Manager(false);
+      var manager = new qx.ui.page.Manager(false);
       manager.addDetail([
         overview,
         addView
